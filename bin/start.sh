@@ -29,6 +29,7 @@ if
     -Dloader.path="$ROOT_PATH/config" \
     -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:10002 \
     -Djasypt.encryptor.password="$1" \
+    --spring.profiles.active=prod \
     -jar "$ROOT_PATH/red-bull-0.0.1-SNAPSHOT.jar" >>"$HOME/logs/$APP/nohup.out" 2>&1 &
 then
   echo "$APP is running, more logs: $HOME/logs/$APP/nohup.out"
