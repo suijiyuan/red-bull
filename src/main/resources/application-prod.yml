@@ -1,0 +1,9 @@
+server:
+  port: 10001
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ENC(BZHHAFVYjRjKgUhgD+LlWVaXalJWrjcP2t2r6cfun7KXxbGlUQPbWw2OMZrx5Zl04kmEvFvuUAbfklR0XZMF8mXhqG4QPaMTYVtve42ENH8=)
+    username: ENC(mWKa/DUVLJmGfYvoIEWVpbRxc5hR0hl920Q3A6NJfb7u88MBNbCGnvQiwUUE0La9)
+    password: ENC(61YbvREQUqmUwApeA2BA4OgOi29kQ5kZxJGdzsneQ0myknwrk6e2fMHun5sFRGud)
