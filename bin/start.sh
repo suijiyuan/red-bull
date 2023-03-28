@@ -2,7 +2,7 @@
 
 APP="red-bull"
 
-if [[ -z "$SALT" ]]; then
+if [[ ! $SALT ]]; then
   echo "start application need \$SALT: jasypt.encryptor.password"
   exit 1
 fi
