@@ -1,8 +1,8 @@
-# red-bull
+# Red-Bull
 
 Just for fun.
 
-## environment
+## Environment
 
 | software | version      |
 |----------|--------------|
@@ -11,7 +11,7 @@ Just for fun.
 | Maven    | 3.8.4        |
 | git      | 2.37.3       |
 
-## how to install it
+## How to install it
 
 ```shell
 # run as root
@@ -57,7 +57,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 ```
 
-## how to use it
+## How to use it
 
 ```shell
 cd ~
@@ -68,8 +68,12 @@ git clone git@github.com:suijiyuan/red-bull.git
 cd red-bull
 vi src/main/resources/prod/application-prod.yml
 # modify the configuration information starting with "ENC", pay attention to use jasypt.encryptor.password
-# mvn jasypt:encrypt-value -Djasypt.encryptor.password="<jasyptEncryptorPassword>" -Djasypt.plugin.value="<theValueYouWantToEncrypt>"
-# mvn jasypt:decrypt -DjasyptEncryptorPassword="<jasyptEncryptorPassword>" -DencryptedValue="<theValueYouWantToDecrypt>"
+
+# mvn jasypt:encrypt-value -Djasypt.encryptor.password="<jasyptEncryptorPassword>" 
+# -Djasypt.plugin.value="<theValueYouWantToEncrypt>"
+
+# mvn jasypt:decrypt -DjasyptEncryptorPassword="<jasyptEncryptorPassword>" 
+# -DencryptedValue="<theValueYouWantToDecrypt>"
 
 mvn clean package -P prod
 
