@@ -4,12 +4,12 @@ Just for fun.
 
 ## Environment
 
-| software | version      |
+| Software | Version      |
 |----------|--------------|
 | CentOS   | 9 Stream x64 |
 | OpenJDK  | 11.0.15+10   |
 | Maven    | 3.8.4        |
-| git      | 2.37.3       |
+| Git      | 2.37.3       |
 
 ## How to install it
 
