@@ -79,5 +79,5 @@ mvn clean package -P prod
 
 cd target/bin
 sh start.sh
-tail -f ~/home/red-bull/red-bull.log
+tail -f ~/logs/red-bull/red-bull.log
 ```
