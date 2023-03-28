@@ -24,6 +24,7 @@ firewall-cmd --reload
 semanage port -a -t ssh_port_t -p tcp 2222
 
 vi /etc/ssh/sshd_config
+# modify ssh port into it
 systemctl restart sshd
 
 # add a user and set sudo permissions
@@ -57,3 +58,22 @@ FLUSH PRIVILEGES;
 ```
 
 ## how to use it
+
+```shell
+cd ~
+vi .bash_profile
+# add $SALT: jasypt.encryptor.password into it
+
+git clone git@github.com:suijiyuan/red-bull.git
+cd red-bull
+vi src/main/resources/prod/application-prod.yml
+# modify the configuration information starting with "ENC", pay attention to use jasypt.encryptor.password
+# mvn jasypt:encrypt-value -Djasypt.encryptor.password="<jasyptEncryptorPassword>" -Djasypt.plugin.value="<theValueYouWantToEncrypt>"
+# mvn jasypt:decrypt -DjasyptEncryptorPassword="<jasyptEncryptorPassword>" -DencryptedValue="<theValueYouWantToDecrypt>"
+
+mvn clean package -P prod
+
+cd target/bin
+sh start.sh
+tail -f ~/home/red-bull/red-bull.log
+```
