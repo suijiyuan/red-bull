@@ -7,6 +7,7 @@ public class ResponseVO<T> {
     private Integer code;
     private String message;
     private T data;
+    private String traceId;
 
     public ResponseVO() {
     }
@@ -59,6 +60,24 @@ public class ResponseVO<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public void setTraceId(String traceId) {
+        this.traceId = traceId;
+    }
+
+    @Override
+    public String toString() {
+        return "ResponseVO{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                ", traceId='" + traceId + '\'' +
+                '}';
     }
 
 }

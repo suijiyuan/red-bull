@@ -8,7 +8,7 @@
         <RollingFile name="rollingFile" fileName="${HOME}/logs/${APP}/${APP}.log"
                      filePattern="${HOME}/logs/${APP}/${APP}-%d{yyyy-MM-dd}.log.gz">
             <PatternLayout>
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</pattern>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{traceId}] [%t] %-5level %logger{36} - %msg%n</pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
