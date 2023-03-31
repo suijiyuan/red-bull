@@ -16,9 +16,14 @@ public class TraceAspect {
     @Around("execution(* xyz.outerringroad.redbull.controller..*(..))")
     public Object traceAspect(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Object result = proceedingJoinPoint.proceed();
-        ResponseVO<?> responseVO = (ResponseVO<?>) result;
-        responseVO.setTraceId(MDC.get("traceId"));
-        return responseVO;
+        if (result instanceof ResponseVO) {
+            ResponseVO<?> responseVO = (ResponseVO<?>) result;
+            responseVO.setTraceId(MDC.get("traceId"));
+            return responseVO;
+        } else {
+            return result;
+        }
+
     }
 
 }
