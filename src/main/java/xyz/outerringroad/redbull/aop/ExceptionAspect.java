@@ -9,6 +9,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import xyz.outerringroad.redbull.bean.vo.ResponseVO;
 import xyz.outerringroad.redbull.constant.CodeEnum;
+import xyz.outerringroad.redbull.exception.BizException;
 
 @Aspect
 @Component
@@ -22,8 +23,11 @@ public class ExceptionAspect {
         Object result;
         try {
             result = proceedingJoinPoint.proceed();
+        } catch (BizException e) {
+            LOG.info("exceptionAspect, BizException", e);
+            return new ResponseVO<Void>(e);
         } catch (Exception e) {
-            LOG.error("exceptionAspect", e);
+            LOG.error("exceptionAspect, Exception", e);
             return new ResponseVO<Void>(CodeEnum.FAILURE);
         }
 

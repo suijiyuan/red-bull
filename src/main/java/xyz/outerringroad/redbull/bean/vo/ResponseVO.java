@@ -1,6 +1,7 @@
 package xyz.outerringroad.redbull.bean.vo;
 
 import xyz.outerringroad.redbull.constant.CodeEnum;
+import xyz.outerringroad.redbull.exception.BizException;
 
 public class ResponseVO<T> {
 
@@ -36,6 +37,11 @@ public class ResponseVO<T> {
         this.code = codeEnum.getCode();
         this.message = codeEnum.getMessage();
         this.data = data;
+    }
+
+    public ResponseVO(BizException bizException) {
+        this.code = bizException.getCode();
+        this.message = bizException.getMessage();
     }
 
     public Integer getCode() {
