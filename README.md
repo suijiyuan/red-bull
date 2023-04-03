@@ -4,12 +4,12 @@ Just for fun.
 
 ## Environment
 
-| Software | Version      |
-|----------|--------------|
-| CentOS   | 9 Stream x64 |
-| OpenJDK  | 11.0.15+10   |
-| Maven    | 3.8.4        |
-| Git      | 2.37.3       |
+| Software         | Version            |
+|------------------|--------------------|
+| Operation System | Rockey Linux 9 x64 |
+| OpenJDK          | 11.0.15+10         |
+| Maven            | 3.8.4              |
+| Git              | 2.37.3             |
 
 ## How to install it
 
