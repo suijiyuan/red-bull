@@ -14,27 +14,6 @@ Just for fun.
 ## How to install it
 
 ```shell
-# run as root
-# update system
-dnf -y update
-
-# change ssh port from 22 to 2222
-firewall-cmd --zone=public --add-port=2222/tcp --permanent
-firewall-cmd --reload
-semanage port -a -t ssh_port_t -p tcp 2222
-
-vi /etc/ssh/sshd_config
-# modify ssh port into it
-systemctl restart sshd
-
-# add a user and set sudo permissions
-useradd admin
-passwd admin
-usermod -aG wheel admin
-
-# run as a user who in wheel group
-su - admin
-
 # install software
 sudo dnf -y install java-11-openjdk-devel
 sudo dnf -y install git
