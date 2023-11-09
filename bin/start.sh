@@ -2,11 +2,6 @@
 
 APP="red-bull"
 
-if [[ ! $SALT ]]; then
-  echo "start application need \$SALT: jasypt.encryptor.password"
-  exit 1
-fi
-
 echo "try to stop application"
 sh stop.sh
 echo "try to start application"
@@ -27,7 +22,6 @@ if
     -Xms128m \
     -Xmx128m \
     -Dloader.path="$ROOT_PATH/config" \
-    -Djasypt.encryptor.password="$SALT" \
     -Dspring.profiles.active=prod \
     -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:10002 \
     -jar "$ROOT_PATH/red-bull-0.0.1-SNAPSHOT.jar" >>"$HOME/logs/$APP/$APP.log" 2>&1 &

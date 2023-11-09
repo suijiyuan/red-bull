@@ -1,17 +1,2 @@
 server:
   port: 10001
-
-#spring:
-#  datasource:
-#    driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: ENC(S9Vfga8FhZiOukdJ7wlcaAy4FDMa0KztYfmy4N2qSeEsogXW8jC3gVjDdIvM4YjQr+gFTJUrBhnOlwHqJpMQBu3sAyUDaE1knKNdBo5VLlc=)
-#    username: ENC(mWKa/DUVLJmGfYvoIEWVpbRxc5hR0hl920Q3A6NJfb7u88MBNbCGnvQiwUUE0La9)
-#    password: ENC(61YbvREQUqmUwApeA2BA4OgOi29kQ5kZxJGdzsneQ0myknwrk6e2fMHun5sFRGud)
-
-spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
-logging:
-  config: classpath:log4j2-dev.xml
