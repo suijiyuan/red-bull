@@ -10,7 +10,7 @@ public class ResponseVO<T> {
     private T data;
     private String traceId;
 
-    public ResponseVO() {
+    private ResponseVO() {
     }
 
     public ResponseVO(Integer code) {
