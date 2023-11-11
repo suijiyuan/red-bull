@@ -1,13 +1,13 @@
 <configuration scan="true">
 
     <property name="LOG_DIR" value="${user.home}/logs" />
-    <property name="APP_NAME" value="${project.artifactId}" />
-    <property name="LOG_FILE" value="${LOG_DIR}/${APP_NAME}/${project.artifactId}.log" />
+    <property name="APP_NAME" value="red-bull" />
+    <property name="LOG_FILE" value="${LOG_DIR}/${APP_NAME}/red-bull.log" />
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/${APP_NAME}/archived/${project.artifactId}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/${APP_NAME}/archived/red-bull.%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>7</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
