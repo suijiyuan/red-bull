@@ -24,7 +24,7 @@ if
     -Dloader.path="$ROOT_PATH/config" \
     -Dspring.profiles.active=prod \
     -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:10002 \
-    -jar "$ROOT_PATH/red-bull-0.0.1-SNAPSHOT.jar" >>"$HOME/logs/$APP/$APP.log" 2>&1 &
+    -jar "$ROOT_PATH/$APP-0.0.1-SNAPSHOT.jar" >>"$HOME/logs/$APP/$APP.log" 2>&1 &
 then
   echo "$APP is running, more logs: $HOME/logs/$APP/$APP.log"
 else
