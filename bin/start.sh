@@ -3,7 +3,7 @@
 APP="red-bull"
 
 echo "try to stop application"
-sh stop.sh
+bash stop.sh
 echo "try to start application"
 
 ROOT_PATH=$(dirname "$(pwd)")
