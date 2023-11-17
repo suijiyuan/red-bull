@@ -12,7 +12,7 @@ import xyz.outerringroad.redbull.bean.vo.ResponseVO;
 
 @Aspect
 @Component
-@Order(3)
+@Order(200)
 public class TraceAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(TraceAspect.class);

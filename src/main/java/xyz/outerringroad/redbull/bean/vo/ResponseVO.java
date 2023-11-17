@@ -14,12 +14,11 @@ public class ResponseVO<T> {
     }
 
     public ResponseVO(Integer code) {
-        this.code = code;
+        this(code, null);
     }
 
     public ResponseVO(Integer code, String message) {
-        this.code = code;
-        this.message = message;
+        this(code, message, null);
     }
 
     public ResponseVO(Integer code, String message, T data) {
@@ -29,8 +28,11 @@ public class ResponseVO<T> {
     }
 
     public ResponseVO(CodeEnum codeEnum) {
-        this.code = codeEnum.getCode();
-        this.message = codeEnum.getMessage();
+        this(codeEnum, null);
+    }
+
+    public ResponseVO(T data) {
+        this(CodeEnum.SUCCESS, data);
     }
 
     public ResponseVO(CodeEnum codeEnum, T data) {

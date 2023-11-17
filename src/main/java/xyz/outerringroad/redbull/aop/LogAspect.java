@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 @Aspect
 @Component
-@Order(1)
+@Order(100)
 public class LogAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(LogAspect.class);

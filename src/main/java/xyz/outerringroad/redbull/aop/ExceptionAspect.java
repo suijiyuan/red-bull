@@ -13,7 +13,7 @@ import xyz.outerringroad.redbull.exception.BizException;
 
 @Aspect
 @Component
-@Order(2)
+@Order(300)
 public class ExceptionAspect {
 
     private static final Logger LOG = LoggerFactory.getLogger(ExceptionAspect.class);
@@ -24,7 +24,7 @@ public class ExceptionAspect {
         try {
             result = proceedingJoinPoint.proceed();
         } catch (BizException e) {
-            LOG.info("exceptionAspect, BizException", e);
+            LOG.info("exceptionAspect, BizException: {}", e.getMessage());
             return new ResponseVO<Void>(e);
         } catch (Exception e) {
             LOG.error("exceptionAspect, Exception", e);

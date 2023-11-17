@@ -8,3 +8,17 @@ management:
 
 logging:
   config: classpath:logback-dev.xml
+
+jwt:
+  secret: Ys4xx8xdLCvkWTeHiS89tzpjfLkyXon8tpZKVZ7LS436htBFYPUD4wySCBx66kCT
+  expiration: 3600000
+
+spring:
+  datasource:
+    url: jdbc:mariadb://127.0.0.1:3306/dev
+    username: root
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:xyz/outerringroad/redbull/mapper/*.xml
