@@ -15,9 +15,9 @@ jwt:
 
 spring:
   datasource:
-    url: jdbc:mariadb://127.0.0.1:3306/dev
-    username: root
-    password:
+    url: jdbc:mariadb://47.95.216.143:3306/dev
+    username: michael
+    password: michael
     driver-class-name: org.mariadb.jdbc.Driver
 
 mybatis:

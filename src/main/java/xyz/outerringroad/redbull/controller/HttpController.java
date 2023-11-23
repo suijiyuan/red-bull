@@ -7,20 +7,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.outerringroad.redbull.bean.dto.UserDTO;
 import xyz.outerringroad.redbull.bean.vo.ResponseVO;
-import xyz.outerringroad.redbull.dao.UserMapper;
-import xyz.outerringroad.redbull.exception.BizException;
-import xyz.outerringroad.redbull.utils.JwtTokenUtil;
-
-import java.util.Objects;
+import xyz.outerringroad.redbull.service.UserService;
+import xyz.outerringroad.redbull.service.TokenService;
 
 @RestController
 public class HttpController {
 
     @Resource
-    private UserMapper userMapper;
+    private UserService userService;
 
     @Resource
-    private JwtTokenUtil jwtTokenUtil;
+    private TokenService tokenService;
 
     @GetMapping("/ping")
     public Object ping() {
@@ -29,17 +26,13 @@ public class HttpController {
 
     @PostMapping("/login")
     public Object login(@RequestBody UserDTO userDTO) {
-        if (Objects.isNull(userDTO)) {
-            throw new BizException("user info is required");
-        }
+        userService.checkUser(userDTO);
+        return new ResponseVO<>(tokenService.generateToken(userDTO));
+    }
 
-        int count = userMapper.checkUser(userDTO);
-        if (count != 1) {
-            throw new BizException("user info not found");
-        }
-
-        String token = jwtTokenUtil.generateToken(userDTO);
-        return new ResponseVO<>(token);
+    @GetMapping("/validate")
+    public Object validate(String token) {
+        return new ResponseVO<>(tokenService.isTokenValid(token));
     }
 
 }
