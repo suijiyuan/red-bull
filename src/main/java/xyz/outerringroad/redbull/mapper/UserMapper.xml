@@ -2,11 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="xyz.outerringroad.redbull.dao.UserMapper">
 
-    <select id="checkUser" resultType="java.lang.Integer">
-        SELECT COUNT(*)
+    <select id="getUser" resultType="xyz.outerringroad.redbull.bean.po.UserPO">
+        SELECT username, password
         FROM user t
         WHERE t.username = #{username}
-          AND t.password = #{password}
     </select>
 
     <insert id="createUser">
@@ -18,7 +17,6 @@
         DELETE
         FROM user t
         WHERE t.username = #{username}
-          AND t.password = #{password}
     </delete>
 
 </mapper>

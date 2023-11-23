@@ -24,7 +24,7 @@ public class TraceAspect {
             responseVO.setTraceId(MDC.get("traceId"));
             return responseVO;
         } else {
-            LOG.warn("the return value of the http interface should be a variable of type ResponseVO");
+            LOG.warn("return value of http interface should be an instance of class ResponseVO");
             return result;
         }
 
