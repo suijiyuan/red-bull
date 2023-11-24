@@ -1,7 +1,6 @@
 package xyz.outerringroad.redbull.service;
 
 import jakarta.annotation.Resource;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
