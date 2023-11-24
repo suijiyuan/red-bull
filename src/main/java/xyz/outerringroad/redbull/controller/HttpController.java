@@ -21,18 +21,18 @@ public class HttpController {
 
     @GetMapping("/ping")
     public Object ping() {
-        return new ResponseVO<>("pong");
+        return ResponseVO.createResponseVO("pong");
     }
 
     @PostMapping("/login")
     public Object login(@RequestBody UserDTO userDTO) {
         userService.checkUser(userDTO);
-        return new ResponseVO<>(tokenService.generateToken(userDTO));
+        return ResponseVO.createResponseVO(tokenService.generateToken(userDTO));
     }
 
     @GetMapping("/validate")
     public Object validate(String token) {
-        return new ResponseVO<>(tokenService.isTokenValid(token));
+        return ResponseVO.createResponseVO(tokenService.isTokenValid(token));
     }
 
 }

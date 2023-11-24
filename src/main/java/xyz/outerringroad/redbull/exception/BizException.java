@@ -10,9 +10,17 @@ public class BizException extends RuntimeException {
         this(CodeEnum.FAILURE.getCode(), message);
     }
 
+    public static BizException createBizException(String message) {
+        return new BizException(message);
+    }
+
     public BizException(Integer code, String message) {
         super(String.format("%d-%s", code, message));
         this.code = code;
+    }
+
+    public static BizException createBizException(Integer code, String message) {
+        return new BizException(code, message);
     }
 
     public Integer getCode() {

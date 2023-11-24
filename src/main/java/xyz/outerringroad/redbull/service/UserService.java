@@ -28,27 +28,27 @@ public class UserService {
         this.checkUserDTO(userDTO);
         UserPO userPO = userMapper.getUser(userDTO);
         if (Objects.isNull(userPO)) {
-            throw new BizException("user info not found");
+            throw BizException.createBizException("user info not found");
         }
 
         if (!passwordEncoder.matches(userDTO.getPassword(), userPO.getPassword())) {
-            throw new BizException("username or password wrong");
+            throw BizException.createBizException("username or password wrong");
         }
     }
 
     public UserDetailsService userDetailsService() {
         return username -> {
-            UserDTO userDTO = new UserDTO();
+            UserDTO userDTO = UserDTO.createUserDTO();
             userDTO.setUsername(username);
             UserPO userPO = userMapper.getUser(userDTO);
             UserBO userBO = UserConverter.INSTANCE.convertUserPOToUserBO(userPO);
-            return Optional.ofNullable(userBO).orElseThrow(() -> new UsernameNotFoundException("user not found"));
+            return Optional.ofNullable(userBO).orElseThrow(() -> BizException.createBizException("user not found"));
         };
     }
 
     private void checkUserDTO(UserDTO userDTO) {
         if (Objects.isNull(userDTO) || Objects.isNull(userDTO.getUsername()) || Objects.isNull(userDTO.getPassword())) {
-            throw new BizException("user info is required");
+            throw BizException.createBizException("user info is required");
         }
     }
 

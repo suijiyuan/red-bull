@@ -25,10 +25,10 @@ public class ExceptionAspect {
             result = proceedingJoinPoint.proceed();
         } catch (BizException e) {
             LOG.info("exceptionAspect, BizException: {}", e.getMessage());
-            return new ResponseVO<Void>(e);
+            return ResponseVO.createResponseVO(e);
         } catch (Exception e) {
             LOG.error("exceptionAspect, Exception", e);
-            return new ResponseVO<Void>(CodeEnum.FAILURE);
+            return ResponseVO.createResponseVO(CodeEnum.FAILURE.getCode());
         }
 
         return result;
