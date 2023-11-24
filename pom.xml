@@ -227,6 +227,15 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- encrypt and decrypt tool
+             encrypt: mvn jasypt:encrypt-value -D jasypt.encryptor.password="SALT" -D jasypt.plugin.value="VALUE" -D jasypt.encryptor.algorithm="PBEWithMD5AndDES" -D jasypt.encryptor.iv-generator-classname=org.jasypt.iv.NoIvGenerator
+             decrypt: mvn jasypt:decrypt-value -D jasypt.encryptor.password="SALT" -D jasypt.plugin.value="VALUE" -D jasypt.encryptor.algorithm="PBEWithMD5AndDES" -D jasypt.encryptor.iv-generator-classname=org.jasypt.iv.NoIvGenerator
+             -->
+            <plugin>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-maven-plugin</artifactId>
+                <version>${jasypt.version}</version>
+            </plugin>
         </plugins>
     </build>
 
