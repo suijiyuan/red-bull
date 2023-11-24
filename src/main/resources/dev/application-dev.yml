@@ -10,15 +10,20 @@ logging:
   config: classpath:logback-dev.xml
 
 jwt:
-  secret: Ys4xx8xdLCvkWTeHiS89tzpjfLkyXon8tpZKVZ7LS436htBFYPUD4wySCBx66kCT
+  secret: ENC(xDFjyXzNIV+adO35+9y/ZjMZjLok9UYrFDyQdJrfEFbu8bgbkHJV+q6gKTa/2oK92G0b8sGyO7O6PngLR4ZhJA47X1TmsvC2m6TL76nl3w8=)
   expiration: 3600000
 
 spring:
   datasource:
-    url: jdbc:mariadb://47.95.216.143:3306/dev
-    username: michael
-    password: michael
+    url: ENC(uoWzLGEXp7+Q++PfhmDmRYdFF2XyvG8Rd8xx7B5cq9FT7kF/ce6HSSClOjtxvSa7)
+    username: ENC(kInVu3qE8YAC209gh6I7nA==)
+    password: ENC(kInVu3qE8YAC209gh6I7nA==)
     driver-class-name: org.mariadb.jdbc.Driver
 
 mybatis:
   mapper-locations: classpath:xyz/outerringroad/redbull/mapper/*.xml
+
+jasypt:
+  encryptor:
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator

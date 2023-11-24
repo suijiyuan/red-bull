@@ -1,4 +1,4 @@
-package xyz.outerringroad.redbull.conf;
+package xyz.outerringroad.redbull.configuration;
 
 import jakarta.annotation.Resource;
 import org.springframework.context.annotation.Bean;
