@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import xyz.outerringroad.redbull.bean.dto.UserDTO;
 import xyz.outerringroad.redbull.exception.BizException;
+import xyz.outerringroad.redbull.factory.BeanFactory;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -25,12 +26,12 @@ public class TokenService {
         try {
             return Jwts.builder()
                     .subject(userDTO.getUsername())
-                    .issuedAt(new Date(System.currentTimeMillis()))
-                    .expiration(new Date(System.currentTimeMillis() + this.expiration))
+                    .issuedAt(BeanFactory.createDate(System.currentTimeMillis()))
+                    .expiration(BeanFactory.createDate(System.currentTimeMillis() + this.expiration))
                     .signWith(Keys.hmacShaKeyFor(this.secret.getBytes(StandardCharsets.UTF_8)))
                     .compact();
         } catch (Exception e) {
-            throw new BizException(e.getMessage());
+            throw BizException.createBizException(e.getMessage());
         }
     }
 
@@ -39,7 +40,7 @@ public class TokenService {
             Claims claims = this.parseToken(token);
             return this.isTokenExpired(claims);
         } catch (Exception e) {
-            throw new BizException(e.getMessage());
+            throw BizException.createBizException(e.getMessage());
         }
     }
 
@@ -53,7 +54,7 @@ public class TokenService {
 
     private boolean isTokenExpired(Claims claims) {
         return Objects.isNull(claims) || Objects.isNull(claims.getExpiration())
-                || claims.getExpiration().before(new Date());
+                || claims.getExpiration().before(BeanFactory.createDate());
     }
 
 }

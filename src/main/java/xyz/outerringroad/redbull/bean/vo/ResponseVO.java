@@ -10,15 +10,27 @@ public class ResponseVO<T> {
     private T data;
     private String traceId;
 
-    private ResponseVO() {
+    public ResponseVO() {
+    }
+
+    public static <T> ResponseVO<T> createResponseVO() {
+        return new ResponseVO<>();
     }
 
     public ResponseVO(Integer code) {
         this(code, null);
     }
 
+    public static <T> ResponseVO<T> createResponseVO(Integer code) {
+        return new ResponseVO<>(code);
+    }
+
     public ResponseVO(Integer code, String message) {
         this(code, message, null);
+    }
+
+    public static <T> ResponseVO<T> createResponseVO(Integer code, String message) {
+        return new ResponseVO<>(code, message);
     }
 
     public ResponseVO(Integer code, String message, T data) {
@@ -27,23 +39,27 @@ public class ResponseVO<T> {
         this.data = data;
     }
 
-    public ResponseVO(CodeEnum codeEnum) {
-        this(codeEnum, null);
+    public static <T> ResponseVO<T> createResponseVO(Integer code, String message, T data) {
+        return new ResponseVO<>(code, message, data);
     }
 
     public ResponseVO(T data) {
-        this(CodeEnum.SUCCESS, data);
+        this.code = CodeEnum.SUCCESS.getCode();
+        this.message = CodeEnum.SUCCESS.getMessage();
+        this.data = data;
     }
 
-    public ResponseVO(CodeEnum codeEnum, T data) {
-        this.code = codeEnum.getCode();
-        this.message = codeEnum.getMessage();
-        this.data = data;
+    public static <T> ResponseVO<T> createResponseVO(T data) {
+        return new ResponseVO<>(data);
     }
 
     public ResponseVO(BizException bizException) {
         this.code = bizException.getCode();
         this.message = bizException.getMessage();
+    }
+
+    public static <T> ResponseVO<T> createResponseVO(BizException bizException) {
+        return new ResponseVO<>(bizException);
     }
 
     public Integer getCode() {
