@@ -24,6 +24,7 @@
         <jjwt.version>0.12.3</jjwt.version>
         <mybatis.version>3.0.2</mybatis.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <jasypt.version>3.0.5</jasypt.version>
     </properties>
 
     <dependencies>
@@ -103,6 +104,12 @@
             <artifactId>mapstruct-processor</artifactId>
             <version>${mapstruct.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>${jasypt.version}</version>
+        </dependency>
+
     </dependencies>
 
     <profiles>
