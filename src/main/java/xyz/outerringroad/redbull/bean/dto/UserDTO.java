@@ -5,11 +5,12 @@ public class UserDTO {
     private String username;
     private String password;
 
-    public UserDTO() {
+    public UserDTO(String username) {
+        this.username = username;
     }
 
-    public static UserDTO createUserDTO() {
-        return new UserDTO();
+    public static UserDTO createUserDTO(String username) {
+        return new UserDTO(username);
     }
 
     public String getUsername() {

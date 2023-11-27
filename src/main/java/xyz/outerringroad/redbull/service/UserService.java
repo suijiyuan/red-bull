@@ -38,8 +38,7 @@ public class UserService {
 
     public UserDetailsService userDetailsService() {
         return username -> {
-            UserDTO userDTO = UserDTO.createUserDTO();
-            userDTO.setUsername(username);
+            UserDTO userDTO = UserDTO.createUserDTO(username);
             UserPO userPO = userMapper.getUser(userDTO);
             UserBO userBO = UserConverter.INSTANCE.convertUserPOToUserBO(userPO);
             return Optional.ofNullable(userBO).orElseThrow(() -> BizException.createBizException("user not found"));
