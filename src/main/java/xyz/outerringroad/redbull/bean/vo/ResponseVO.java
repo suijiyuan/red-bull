@@ -10,14 +10,7 @@ public class ResponseVO<T> {
     private T data;
     private String traceId;
 
-    public ResponseVO() {
-    }
-
-    public static <T> ResponseVO<T> createResponseVO() {
-        return new ResponseVO<>();
-    }
-
-    public ResponseVO(Integer code) {
+    private ResponseVO(Integer code) {
         this(code, null);
     }
 
@@ -25,7 +18,7 @@ public class ResponseVO<T> {
         return new ResponseVO<>(code);
     }
 
-    public ResponseVO(Integer code, String message) {
+    private ResponseVO(Integer code, String message) {
         this(code, message, null);
     }
 
@@ -33,7 +26,7 @@ public class ResponseVO<T> {
         return new ResponseVO<>(code, message);
     }
 
-    public ResponseVO(Integer code, String message, T data) {
+    private ResponseVO(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
@@ -43,7 +36,7 @@ public class ResponseVO<T> {
         return new ResponseVO<>(code, message, data);
     }
 
-    public ResponseVO(T data) {
+    private ResponseVO(T data) {
         this.code = CodeEnum.SUCCESS.getCode();
         this.message = CodeEnum.SUCCESS.getMessage();
         this.data = data;
@@ -53,7 +46,7 @@ public class ResponseVO<T> {
         return new ResponseVO<>(data);
     }
 
-    public ResponseVO(BizException bizException) {
+    private ResponseVO(BizException bizException) {
         this.code = bizException.getCode();
         this.message = bizException.getMessage();
     }
