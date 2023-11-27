@@ -6,7 +6,7 @@ public class BizException extends RuntimeException {
 
     private final Integer code;
 
-    public BizException(String message) {
+    private BizException(String message) {
         this(CodeEnum.FAILURE.getCode(), message);
     }
 
@@ -14,7 +14,7 @@ public class BizException extends RuntimeException {
         return new BizException(message);
     }
 
-    public BizException(Integer code, String message) {
+    private BizException(Integer code, String message) {
         super(String.format("%d-%s", code, message));
         this.code = code;
     }
@@ -31,6 +31,7 @@ public class BizException extends RuntimeException {
     public String toString() {
         return "BizException{" +
                 "code=" + code +
+                "message" + this.getMessage() +
                 '}';
     }
 
