@@ -25,7 +25,7 @@ public class TokenService {
         try {
             return Jwts.builder()
                     .subject(userDTO.getUsername())
-                    .issuedAt(BeanFactory.createDate(System.currentTimeMillis()))
+                    .issuedAt(BeanFactory.createDate())
                     .expiration(BeanFactory.createDate(System.currentTimeMillis() + this.expiration))
                     .signWith(Keys.hmacShaKeyFor(this.secret.getBytes(StandardCharsets.UTF_8)))
                     .compact();
