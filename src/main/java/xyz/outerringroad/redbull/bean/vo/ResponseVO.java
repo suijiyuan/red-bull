@@ -10,6 +10,13 @@ public class ResponseVO<T> {
     private T data;
     private String traceId;
 
+    public ResponseVO() {
+    }
+
+    public static <T> ResponseVO<T> createResponseVO() {
+        return new ResponseVO<>();
+    }
+
     private ResponseVO(Integer code) {
         this(code, null);
     }
