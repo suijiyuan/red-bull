@@ -27,5 +27,6 @@ mybatis:
 
 jasypt:
   encryptor:
+    password: '@jasypt.encryptor.password@'
     algorithm: PBEWithMD5AndDES
     iv-generator-classname: org.jasypt.iv.NoIvGenerator
