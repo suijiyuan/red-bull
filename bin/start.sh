@@ -13,7 +13,7 @@ if [[ ! -d $HOME/logs/$APP ]]; then
 fi
 
 if [ -z "$RED_BULL_SALT" ]; then
-    echo "environment variable \$RED_BULL_SALT not exist"
+    echo "environment variable \$RED_BULL_SALT not exist, please check status of application"
     exit 1
 fi
 
